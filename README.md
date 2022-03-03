@@ -1,6 +1,6 @@
 # Desafio Wind Dashboard
 
-Criar uma página web que atenda as demandas abaixo.
+O objetivo do desafio é criar uma página web que atenda as demandas abaixo.
 A página deve apresentar uma interface amigável, bonita e limpa,
  na qual o usuário possa visualizar as informações de forma clara.
 
