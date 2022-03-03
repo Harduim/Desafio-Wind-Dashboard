@@ -25,72 +25,6 @@ A pessoa estagiária de desenvolvimento Web dará suporte no desenvolvimento de 
 - Verifique se o código atende os requisitos funcionais das demandas;
 - Ao finalizar o desafio, faça um pull request de sua branch para esse repositório.
 
-
-### Manual da API INMET.GOV
-
-- Recuperar todas estações de acordo com o tipo passado como parâmetro:
-  - Tipos:
-    - Automáticas: T
-    - Manuais: M
-  - https://apitempo.inmet.gov.br/estacoes/<tipo>
-  - https://apitempo.inmet.gov.br/estacoes/T
-
-- Recuperar dados horários referentes a todas as estações automáticas de um determinado dia:
-  - https://apitempo.inmet.gov.br/estacoes/dados/<data>
-  - https://apitempo.inmet.gov.br/estacao/dados/2020-05-02
-  - Sendo data no formato **AAAA-MM-DD** (ex: 2020-05-020)
-
-- Recuperar dados horários referentes a estação automática ou manual:
-  - https://apitempo.inmet.gov.br/estacao/<data_inicial>/<data_final>/<cod_estacao>
-  - https://apitempo.inmet.gov.br/estacao/2019-10-23/2019-10-23/A301
-  - Sendo data no formato **AAAA-MM-DD** (ex: 2019-10-23)
-
-- Recuperar dados diários referentes a estação automática ou manual:
-  - https://apitempo.inmet.gov.br/estacao/diaria/<data_inicial>/<data_final>/<cod_estacao>
-  - https://apitempo.inmet.gov.br/estacao/diaria/2019-10-01/2019-10-31/A301
-  - Sendo data no formato **AAAA-MM-DD** (ex: 2019-10-31)
-
-
-## Formato dos dados
-
-**SÉRIES DIÁRIAS**
-| CAMPO         | DESCRIÇÃO                                   | UNIDADE |
-| ------------- | ------------------------------------------- | ------- |
-| CHUVA         | Precipitação Total, Diario (Aut)            | mm      |
-| PRESS_ATM_MED | Pressao Atmosferica Media Diaria (Aut)      | mB      |
-| TEMP_MAX      | Temperatura Máxima, Diaria (Aut)            | °C      |
-| TEMP_MED      | Temperatura Média, Diária (Aut)             | °C      |
-| TEMP_MIN      | Temperatura Mínima, Diaria (Aut)            | °C      |
-| UMID_MED      | Umidade Relativa Do Ar, Media Diaria (Aut)  | %       |
-| UMID_MIN      | Umidade Relativa Do Ar, Minima Diaria (Aut) | %       |
-| VEL_VENTO_MED | Vento, Velocidade Média Diária (Aut)        | m/s     |
-
-**SÉRIES HORÁRIAS**
-| CAMPO         | DESCRIÇÃO                                        | UNIDADE |
-| ------------- | ------------------------------------------------ | ------- |
-| VEN_DIR       | Vento, Direção Horaria (Gr)                      | ° (gr)  |
-| CHUVA         | Precipitação Total, Horário                      | mm      |
-| PRE_INS       | Pressão Atmosférica Ao Nível Da Estacão, Horaria | mB      |
-| PRE_MIN       | Pressão Atmosférica Min. Na Hora Ant. (Aut)      | mB      |
-| UMD_MAX       | Umidade Rel. Max. Na Hora Ant. (Aut)             | %       |
-| PRE_MAX       | Pressão Atmosférica Max.Na Hora Ant. (Aut)       | mB      |
-| VEN_VEL       | Vento, Velocidade Horaria                        | m/s     |
-| PTO_MIN       | Temperatura Orvalho Min. Na Hora Ant. (Aut)      | °C      |
-| TEM_MAX       | Temperatura Máxima Na Hora Ant. (Aut)            | °C      |
-| RAD_GLO       | Radiação Global                                  | KJ/m²   |
-| PTO_INS       | Temperatura Do Ponto De Orvalho                  | °C      |
-| VEN_RAJ       | Vento, Rajada Máxima                             | m/s     |
-| TEM_INS       | Temperatura Do Ar - Bulbo Seco, Horaria          | °C      |
-| UMD_INS       | Umidade Relativa Do Ar, Horaria                  | %       |
-| TEM_MIN       | Temperatura Mínima Na Hora Ant. (Aut)            | °C      |
-| UMD_MIN       | Umidade Rel. Min. Na Hora Ant. (Aut)             | %       |
-| PTO_MAX       | Temperatura Orvalho Max. Na Hora Ant. (Aut)      | °C      |
-
-
-Para mais informações vide o manual no site do INMET: [link](https://portal.inmet.gov.br/manual/manual-de-uso-da-api-esta%C3%A7%C3%B5es)
-
-
-
 ## Requisitos de código
 
 - O código deve estar bem organizado;
@@ -199,7 +133,7 @@ A página deve conter:
   - Sendo data no formato **AAAA-MM-DD** (ex: 2019-10-31)
 
 
-## Formato dos dados
+### Formato dos dados
 
 **SERIES DIÁRIAS**
 | CAMPO         | DESCRIÇÃO                                   | UNIDADE |
