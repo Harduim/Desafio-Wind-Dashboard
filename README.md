@@ -29,27 +29,27 @@ A pessoa estagiária de desenvolvimento Web dará suporte no desenvolvimento de 
   - Tipos:
     - Automáticas: T
     - Manuais: M
-  - https://apitempo.inmet.gov.br/estacoes/`<tipo>`
+  - https://apitempo.inmet.gov.br/estacoes/<tipo>
   - https://apitempo.inmet.gov.br/estacoes/T
 
 - Recuperar dados horários referentes a todas as estações automáticas de um determinado dia:
-  - https://apitempo.inmet.gov.br/estacoes/dados/`<data>`
+  - https://apitempo.inmet.gov.br/estacoes/dados/<data>
   - https://apitempo.inmet.gov.br/estacao/dados/2020-05-02
   - Sendo data no formato **AAAA-MM-DD** (ex: 2020-05-020)
 
 - Recuperar dados horários referentes a todas as estações automáticas de um determinado dia e hora:
-  - https://apitempo.inmet.gov.br/estacoes/dados/`<data>`/`<data>`
+  - https://apitempo.inmet.gov.br/estacoes/dados/<data>/<data>
   - https://apitempo.inmet.gov.br/estacao/dados/2020-05-02/0800
   - Sendo data no formato **AAAA-MM-DD** (ex: 2020-05-02)
   - Sendo hora no formato HH00 hora cheia (ex: 1200), considera horário UTC
 
 - Recuperar dados horários referentes a estação automática ou manual:
-  - https://apitempo.inmet.gov.br/estacao/`<data_inicial>`/`<data_final>`/`<cod_estacao>`
+  - https://apitempo.inmet.gov.br/estacao/<data_inicial>/<data_final>/<cod_estacao>
   - https://apitempo.inmet.gov.br/estacao/2019-10-23/2019-10-23/A301
   - Sendo data no formato **AAAA-MM-DD** (ex: 2019-10-23)
 
 - Recuperar dados diários referentes a estação automática ou manual:
-  - https://apitempo.inmet.gov.br/estacao/diaria/`<data_inicial>`/`<data_final>`/`<cod_estacao>`
+  - https://apitempo.inmet.gov.br/estacao/diaria/<data_inicial>/<data_final>/<cod_estacao>
   - https://apitempo.inmet.gov.br/estacao/diaria/2019-10-01/2019-10-31/A301
   - Sendo data no formato **AAAA-MM-DD** (ex: 2019-10-31)
 
