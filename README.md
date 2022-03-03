@@ -4,6 +4,9 @@ Criar uma página web que atenda as demandas abaixo.
 A página deve apresentar uma interface amigável, bonita e limpa,
  na qual o usuário possa visualizar as informações de forma clara.
 
+Como parte da avaliação, o projeto será apresentado pelo candidato para a equipe da Rio Energy na data agendada pelo RH.
+Durante a apresentação o candidato deve demonstrar os recursos implementados na página web e responder a perguntas da equipe.
+O tempo de duração é de 1h.
 
 ## Contexto
 
