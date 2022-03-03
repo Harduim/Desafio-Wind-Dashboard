@@ -175,6 +175,6 @@ Para mais informações vide o manual no site do INMET: [link](https://portal.in
 
 ## Adicionais (opcional)
 
-- Faça commits que descrevam o que está sendo implementado no código em questão;
+- Fazer commits que descrevam o que está sendo implementado no código em questão;
 - Fazer com que os gráficos mantenham sempre o mesmo nível de zoom;
 - Responsividade, deve funcionar bem em telas pequenas (Um bom jeito de testar isso é a opção "toggle device toolbar" <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> no DevTools do Google Chrome).
