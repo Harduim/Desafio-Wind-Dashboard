@@ -1,13 +1,14 @@
 function variancia(list) {
   let media = calcMedia(list);
-  let variancia = list.reduce(
+  return list.reduce(
     (total, valor) => total + Math.pow(media - valor, 2) / list.length,
     0
   );
-  alert(variancia);
 }
 
-function desvioPadrao() {}
+function desvioPadrao(list) {
+  return Math.sqrt(variancia(list));
+}
 
 function covar() {}
 
@@ -16,5 +17,5 @@ function rmse() {}
 function linearReg() {}
 
 function calcMedia(list) {
-  return (media = list.reduce((total, num) => total + num / list.length, 0));
+  return list.reduce((total, num) => total + num / list.length, 0);
 }
