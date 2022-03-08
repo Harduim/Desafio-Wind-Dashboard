@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, :root{
+    font-size: 62.5%;
+
+    /*Main colors*/
+    --primary-color: #00D35C;
+    --second-color:#C4F27A;
+    --phtalo-blue: #1A1B86;
+    --text-black: #000000;
+    --shadow-smooth:#4A4A57;
+    --shadow-hardner:#12121D;
+    --white-dashboard: #fff;
+    /*support colors*/
+    --midnight-blue: #18197A;
+    --blue-pantone: #311AA1;
+    --medium-blue: #4719BB;
+    --eletric-indigo: #7417EF;
+    --flame: #E84800;
+    --international-orange: #FF4F00;
+    --yellow-orange: #FF9200;
+    --cyber-yelow: #FFD400;
+    --golden-yellow: #FFDF3F;
+    --titanium-yellow: #DDDD00;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    background-color: var(--primary-color);
+    align-items: center;
+    justify-content: space-between ;
+    height: 10rem;
+} 
+
+main{
+    background-color: var(--white-dashboard);
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-colum{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.title{
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-black);
+    font-size: 4rem;
+    margin: 2rem 0 0 6rem;
+}
+
+#wind-generator{
+    width: 8rem;
+    margin: 2rem 5rem 0 0;
+}
+
+#logotype{
+    width: 15rem;
+    margin-left: 5rem;
+}
+
+#graphs{
+    width: 90rem;
+    height: 50rem;
+    margin-top:2rem;    
+}
