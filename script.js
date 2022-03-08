@@ -2,14 +2,15 @@ var graphics = document.getElementById("graphs");
 
 const baseURL ='https://apitempo.inmet.gov.br/estacoes/T';
 
-const getApi =(url) => {
-    let request = new XMLHttpRequest();
-    request.open('GET',url, false);
-    return request.responseText
-};
-console.log(getApi(baseURL));
 
-
+fetch(baseURL)
+.then((response)=>{
+    return response.json();
+}).then((data)=>{
+    const stationsCode = [data.map(obj =>
+        obj.DC_NOME)];
+  console.log(stationsCode);
+})
 
 
 var trace1 = {
