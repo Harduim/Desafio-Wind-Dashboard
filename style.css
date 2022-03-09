@@ -78,3 +78,9 @@ main{
     height: 50rem;
     margin-top:2rem;    
 }
+
+#chose-station{
+    width: 8rem;
+    height: 2rem;
+    margin: 4rem 0 0 6rem;
+}

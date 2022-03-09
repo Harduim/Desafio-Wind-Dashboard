@@ -1,16 +1,36 @@
-var graphics = document.getElementById("graphs");
+const graphics = document.getElementById("graphs");
+const stationSelect = document.getElementById("choseStation");
 
 const baseURL ='https://apitempo.inmet.gov.br/estacoes/T';
 
 
-fetch(baseURL)
-.then((response)=>{
-    return response.json();
-}).then((data)=>{
-    const stationsCode = [data.map(obj =>
-        obj.DC_NOME)];
-  console.log(stationsCode);
-})
+async function getApi(){
+  const response = await fetch(baseURL);
+   return response.json()
+};
+
+let stationsId= [];
+async function getIdList(){
+   const data = await getApi();
+   let stationsIDList = data.map(obj=>
+        obj.CD_ESTACAO
+   );
+    return  stationsIDList;
+};
+(async () => {
+  stationsId.push(await getIdList());
+})()
+
+
+
+
+
+
+
+
+
+
+
 
 
 var trace1 = {

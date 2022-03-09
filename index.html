@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
     <header class="flex-row">
         <img src="./assets/RioEnergy_Marca2021.png" alt="Rio Energy Logotype" id="logotype">
         <img src="./assets/windgenerator.png" alt="Wind generator ilustration" id="wind-generator">
@@ -26,10 +27,16 @@
 
     <main class="flex-collum">
 
-        <h5 class="title">Wind Dashboard</h5>
+        <div class="flex-row">
+            <h5 class="title">Wind Dashboard</h5>
+            <select name='chose-station' id="chose-station">
+                <option value=""  disabled selected>Escolha a estação</option>
+            </select>
+        </div>
+
         <div id="graphs" onload="drawLines()">
-            
-            
+
+
         </div>
 
     </main>
