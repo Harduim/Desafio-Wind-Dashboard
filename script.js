@@ -38,6 +38,7 @@ async function getStations(){
     const initialDate = document.getElementById("initialDate").value
     const finalDate = document.getElementById("finalDate").value
     const serieType = document.getElementById("serie").value
+    
     const valuesObject = {
       stationId,
       initialDate,
@@ -46,11 +47,11 @@ async function getStations(){
     }
       //faz a tomada de decisão para qual endpoint irá fazer a requisição
       let urlRequest = ''
-      serieType === '1' ? (urlRequest= `${baseURL}estacao/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`):(urlRequest = `${baseURL}estacao/diaria/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`);
+      valuesObject.serieType === '1' ? (urlRequest= `${baseURL}estacao/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`):(urlRequest = `${baseURL}estacao/diaria/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`);
         
        const windData = await getApi(urlRequest);
        
-      
+       return windData;
   };
   
 
