@@ -1,66 +1,79 @@
 const graphics = document.getElementById("graphs");
-const baseURL = "https://apitempo.inmet.gov.br/estacoes";
+const baseURL ='https://apitempo.inmet.gov.br/'
 
-async function getApi() {
-  const response = (await fetch(`${baseURL}/T`)).json();
-  return response;
-}
+//conecta a api
+async function getApi(url){
+  const response =  (await fetch(url)).json();
+  return response; 
+};
 
-async function getWindInfoByDate(initDate, finalDate, id) {
-  const response = (
-    await fetch(`${baseURL}/${initDate}/${finalDate}/${id}`)
-  ).json();
-  return response;
-}
-
-async function getStations() {
-  const data = await getApi();
+//pega as estações e os códigos delas
+async function getStations(){
+  const data = await getApi(`${baseURL}estacoes/T`);
   const stations = data.map((station) =>
     Object({
       id: station.CD_ESTACAO,
       value: station.DC_NOME,
-    })
-  );
+    }));
+    return stations;
+  };
+ 
+  //popula as estações e seus códigos em um select  
+  const populatedSelect = async () => {
+    const stationSelect = document.getElementById("chose-station");
+    const stations = await getStations();
+    return stations.map((station) => {
+      const options = document.createElement("option");
+      options.setAttribute("value", station["id"]);
+      options.innerHTML = station["value"];
+      stationSelect.appendChild(options);
+    });
+  };
 
-  return stations;
-}
+  const getValues = ()=>{
+     const stationId= document.getElementById("chose-station").value
+     const initialDate = document.getElementById("initialDate").value
+     const finalDate = document.getElementById("finalDate").value
+     const serieType = document.getElementById("").value
+  }
 
-const populatedSelect = async () => {
-  const stationSelect = document.getElementById("chose-station");
-  const stations = await getStations();
-  return stations.map((station) => {
-    const options = document.createElement("option");
-    options.setAttribute("value", station["id"]);
-    options.innerHTML = station["value"];
-    stationSelect.appendChild(options);
-  });
-};
-window.addEventListener(onload, populatedSelect());
+    window.addEventListener(onload, populatedSelect());
+  
 
-const processRequest = async () => {
-    // TODO: pegar info dos valores do input
-    const windeData = await getWindInfoByDate()
-};
 
-const trace1 = {
-  x: [1, 2, 3, 4],
 
-  y: [10, 15, 13, 17],
 
-  type: "scatter",
-};
 
-const trace2 = {
-  x: [1, 2, 3, 4],
 
-  y: [16, 5, 11, 9],
 
-  type: "scatter",
-};
 
-const data = [trace1, trace2];
-const layout = {
-  title: "Wind Dashboard",
-};
 
-Plotly.newPlot(graphics, data, layout, { scrollZoom: true });
+
+var trace1 = {
+
+    x: [1, 2, 3, 4],
+  
+    y: [10, 15, 13, 17],
+  
+    type: 'scatter'
+  
+  };
+  
+  
+  var trace2 = {
+  
+    x: [1, 2, 3, 4],
+  
+    y: [16, 5, 11, 9],
+  
+    type: 'scatter'
+  
+  };
+  
+  
+  var data = [trace1, trace2];
+  var layout= {
+    title:'Wind Dashboard'
+  }
+  
+  Plotly.newPlot(graphics, data,layout , {scrollZoom:true});

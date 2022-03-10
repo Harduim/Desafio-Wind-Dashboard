@@ -25,19 +25,37 @@
         <img src="./assets/windgenerator.png" alt="Wind generator ilustration" id="wind-generator">
     </header>
 
-    <main class="flex-collum">
+    <main class="centralized">
+        <h5 class="title">Wind Dashboard</h5>
 
-        <div class="flex-row">
-            <h5 class="title">Wind Dashboard</h5>
-            <select name='chose-station' id="chose-station" onload="populatedSelect()">
-                <option value=""  disabled selected>Escolha a estação</option>
-            </select>
-        </div>
+  
+        <div class="flex-row "> 
+
+                <select name='chose-station' class="largeInput" id="chose-station" onload="populatedSelect()">
+                    <option value=""  disabled >Escolha a estação</option>
+                </select>
+                
+                <input type="date" name="" max="2022-03-11" class="largeInput" id="initialDate">
+                <input type="date" name="" max="2022-03-11" class="largeInput" id="finalDate">
+               
+                
+                <select name="" id="serie" class="largeInput">
+                    <option value="" disabled >Escolha uma série</option>
+                    <option value="1">Horária</option> 
+                    <option value="2">Diária</option>
+                </select>
+                
+                <button class=" largeInput btnSmall" onclick="getValues()">Buscar</button>
+            
+            </div>
+            
+        
 
         <div id="graphs" onload="drawLines()">
 
 
         </div>
+    </div>    
 
     </main>
     <script src="./script.js"></script>

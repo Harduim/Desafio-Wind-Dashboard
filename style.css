@@ -53,8 +53,15 @@ main{
 .flex-row{
     display: flex;
     flex-direction: row;
+    justify-self: start;
 }
+.centralized{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+}
 
 .title{
     font-family: 'DM Sans', sans-serif;
@@ -63,9 +70,45 @@ main{
     margin: 2rem 0 0 6rem;
 }
 
+.labelSmall{
+     width: 3rem;
+     margin: 4rem 0 0 3rem;
+     font-size: 1.5rem;
+     font-weight: 00;   
+    }
+
+.largeInput{
+    width: 15rem;
+    height: 3rem;
+    margin: 4rem 0 0 3rem;
+    background-color:var(--white-dashboard);
+    border: 0.1rem solid;
+    border-radius: 0.8rem;
+    outline: none;
+    text-align: center;
+    box-shadow: 0rem 0.1rem 0.2rem var(--shadow-smooth);
+}
+.smallInput{
+    width: 2rem;
+    margin: 4rem 0 0 1rem;
+
+}
+
+.btnSmall{
+    width: 6rem;
+}
+.btnSmall:hover{
+    background-color: var(--second-color);
+}
+.largeInput:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+    outline: auto;
+}
+
 #wind-generator{
     width: 8rem;
-    margin: 2rem 5rem 0 0;
+    margin: 2rem 2rem 0 0;
 }
 
 #logotype{
@@ -77,10 +120,4 @@ main{
     width: 90rem;
     height: 50rem;
     margin-top:2rem;    
-}
-
-#chose-station{
-    width: 8rem;
-    height: 2rem;
-    margin: 4rem 0 0 6rem;
 }
