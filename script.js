@@ -6,9 +6,21 @@ const average = (array) =>{
     const averageOfArray = array.reduce((a,b)=> a+b, 0 );
     const result = averageOfArray / array.length;
     return result;
-}
+};
 
+const variance = (array)=>{
+  const resolvedAverage= average(array);
+  const squareDiffs = array.map((value)=>{
+    const diff = value - resolvedAverage;
+    return diff * diff;
+  });
+  const variance = resolvedAverage(squareDiffs);
+  return variance  
+};
 
+const standDeviation =(variance) =>{
+   return Math.sqrt(variance);
+};
 
 
 //conecta a api
