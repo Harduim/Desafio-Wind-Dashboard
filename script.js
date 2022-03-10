@@ -30,12 +30,25 @@ async function getStations(){
     });
   };
 
-  const getValues = ()=>{
-     const stationId= document.getElementById("chose-station").value
-     const initialDate = document.getElementById("initialDate").value
-     const finalDate = document.getElementById("finalDate").value
-     const serieType = document.getElementById("").value
-  }
+  
+
+  const getWindBydDate = async () =>{
+    //pega todos os valores dos inputs
+    const stationId= document.getElementById("chose-station").value
+    const initialDate = document.getElementById("initialDate").value
+    const finalDate = document.getElementById("finalDate").value
+    const serieType = document.getElementById("serie").value
+    const valuesObject = {
+      stationId,
+      initialDate,
+      finalDate,
+      serieType
+    }
+      let url = ''
+      serieType === '1' ? (url= `${baseURL}/estacao/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`):(url = `${baseURL}/diaria/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`);
+      
+  };
+  
 
     window.addEventListener(onload, populatedSelect());
   
