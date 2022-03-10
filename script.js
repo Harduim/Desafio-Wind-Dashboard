@@ -22,6 +22,16 @@ const standDeviation =(variance) =>{
    return Math.sqrt(variance);
 };
 
+const covariance = (array1, array2) =>{
+  let sum = 0;
+  const arrayLength = array1.length || array2.length;
+  const averageFirstArr = average(array1);
+  const averageSecondArr = average(array2)    
+  for(let i =0;i<arrayLength; i++){
+     sum = sum + (array1[i] - averageFirstArr) * (array2[i] -  averageSecondArr);
+  }
+  return sum / arrayLength;
+};
 
 //conecta a api
 async function getApi(url){
