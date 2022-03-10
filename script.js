@@ -148,7 +148,6 @@ async function getStations(){
               
               const intercept = yAverage - xAverage*slope;
               agregor['intercept'] = intercept;
-              console.log(agregor);
               return agregor;
           };
         
@@ -162,12 +161,7 @@ async function getStations(){
            const b = second - (second*a);
            return  a*b;
         }
-        
-
-
-
-
-        
+           
         if(serieType === '1'){
           const lr =  await  linearRegression(serieHoraria.velTimeTable,serieHoraria.velTimeTable);
          
