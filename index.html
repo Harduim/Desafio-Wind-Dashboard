@@ -1,31 +1,217 @@
 <!doctype html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Desafio Lucas Bomfim</title>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Desafio Lucas Bomfim</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+        
+				<link href="./style.css" rel="stylesheet">
+
+        <!-- Adicionei essa biblioteca apenas por estética, para poder ter mais liberdade ao escolher ícones, peço perdão caso não fosse o desejado -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+			<div id="loader" class="loader disabled"></div>
+        <div id="pageContent" class="content">
+
+        <!-- Sidebar Start -->
+        <div id="sidebar" class="sidebar pe-4 pb-3">
+            <nav class="navbar">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <img src="./logo-rioenergy.png" width="180px"/>
+                </a>
+                <div class="navbar-nav w-100">
+                    <a href="#" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="#" class="nav-item nav-link" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+        <!-- Navbar Start -->
+        <nav id="navbar" class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+            <a href="#" id="sidebar-toggler" class="sidebar-toggler flex-shrink-0" style="text-decoration: none;" onclick="sidebarToggler()">
+            <i class="fa fa-bars" ></i>
+            </a>
+            <div class="navbar-nav align-items-center ms-auto">
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="fa fa-envelope me-lg-2"></i>
+                    <span class="d-none d-lg-inline-flex">Mensagens</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="fa fa-bell me-lg-2"></i>
+                    <span class="d-none d-lg-inline-flex">Notificações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                    <i class="fa fa-user me-lg-2" style="color: black"></i>
+                    <span class="d-none d-lg-inline-flex">Lucas</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        <a href="#" class="dropdown-item">My Profile</a>
+                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="#" class="dropdown-item">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Form Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="row">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-light text-dark rounded p-4">
+                        <form action="#" id="form">
+                            <div class="form-group">
+                                <label for="estacao">Estação:</label>
+                                <input type="text" class="form-control" id="estacao" placeholder="Coloque a estação desejada. (Se todas, deixar em branco)">
+                                <small class="form-text text-muted">Para consultar as estações clique <a href="https://mapas.inmet.gov.br/" target="_blank">aqui</a>.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="select">Forma dos dados:</label>
+                                <select id="tipo-dado" required class="form-control" style="background-color: white; color: black;" onchange="handleSelect()">
+                                    <option selected disabled>Escolha</option>
+                                    <option value="diaria">Diário</option>
+                                    <option value="horaria">Horário</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Primeira Série:</label>
+                                <select required id="serie1" class="form-control" style=" color: black;" disabled>
+                                    <option selected disabled>Escolha o tipo de dado primeiro..</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo2">Segunda Série:</label>
+                                <select id="serie2" required class="form-control" style="color: black;" disabled>
+                                    <option selected disabled>Escolha o tipo de dado primeiro..</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hour">Hora:</label><br />
+                                <input class="form-control" type="number" id="hour" name="hour" min="0" max="23" style=" color: black;" disabled>
+                            </div>
+                            <div class="form-check" id="hour-form" style="padding: 0;">
+                                <label class="form-check-label" for="start">Data de início:</label>
+                                <input class="form-control" type="date" id="start" name="start">
+                            </div>
+                            <div class="form-check" id="hour-form1" style="padding: 0;">
+                                <label class="form-check-label" for="finish">Data de término:</label>
+                                <input class="form-control" type="date" id="finish" name="finish">
+                            </div>
+                            <br />
+                            <button type="submit" class="btn btn-success">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Form End-->
+
+        <!-- Dash Chart Start -->
+        <div id="chart" class="container-fluid pt-4 px-4 disabled">
+            <div class="row">
+                <div class="col-sm-12 col-xl-12">
+                    <div class="bg-light text-center rounded p-4">
+                        <div id="totalChart"></div>
+                    </div>
+                </div>
+                <div class="row " style="margin-top: 50px;">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light text-center rounded p-6">
+                            <div class="d-flex align-items-center justify-content-center mb-4" style="padding: 1%;">
+                                <div id="chart1" style="max-width: 600px"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light text-center rounded p-6">
+                            <div class="d-flex align-items-center justify-content-center mb-4">
+                                <div id="chart2" style="max-width: 600px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dash Chart End -->
+
+        <!-- Table -->
+        <div id="table" class="container-fluid pt-4 px-4 disabled">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Métricas de ambas as séries</h6>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <thead>
+                            <tr class="text-dark">
+                                <th scope="col">Série</th>
+                                <th scope="col">Máximo</th>
+                                <th scope="col">Mínimo</th>
+                                <th scope="col">Desvio Padrão</th>
+                                <th scope="col">Variância</th>
+                                <th scope="col">Covariância</th>
+                                <th scope="col">RMSE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-dark"><strong>Primeira Série</strong></td>
+                                <td id="maximo"></td>
+                                <td id="minimo"></td>
+                                <td id="dp"></td>
+                                <td id="var"></td>
+                                <td id="covar"></td>
+                                <td id="rmse"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark"><strong>Segunda Série</strong></td>
+                                <td id="maximo1"></td>
+                                <td id="minimo1"></td>
+                                <td id="dp1"></td>
+                                <td id="var1"></td>
+                                <td id="covar1"></td>
+                                <td id="rmse1"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-light rounded-top p-4">
+                <div class="row">
+                    <div class="col-12 col-sm-6 text-center text-sm-start">
+                        &copy; <a href="#">Rio Energy</a> , All Right Reserved. 
+                    </div>
+                    <div class="col-12 col-sm-6 text-center text-sm-end">
+                        Feito por Lucas Bomfim
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+				
+    </body>
+    <script src="select.js"></script>
     <script src="script.js"></script>
-    <link href="./style.css" rel="stylesheet">
-</head>
-
-<body>
-    <button onclick="alert(variancia([7,8,9,10,10,11,11,12,13]))">
-        Variancia
-    </button>
-    <button onclick="alert(desvioPadrao([7,8,9,10,10,11,11,12,13]))">
-        Desvio Padrão
-    </button>
-    <button onclick="alert(covar([1, 2, 3], [10, 20, 27]))">
-        Covariância
-    </button>
-
-</body>
-
 </html>
