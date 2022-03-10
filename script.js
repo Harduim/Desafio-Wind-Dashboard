@@ -44,8 +44,12 @@ async function getStations(){
       finalDate,
       serieType
     }
-      let url = ''
-      serieType === '1' ? (url= `${baseURL}/estacao/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`):(url = `${baseURL}/diaria/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`);
+      //faz a tomada de decisão para qual endpoint irá fazer a requisição
+      let urlRequest = ''
+      serieType === '1' ? (urlRequest= `${baseURL}estacao/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`):(urlRequest = `${baseURL}estacao/diaria/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`);
+        
+       const windData = await getApi(urlRequest);
+       
       
   };
   
