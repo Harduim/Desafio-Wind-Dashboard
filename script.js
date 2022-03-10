@@ -36,14 +36,11 @@ function rmse(y_hat, x) {
 
 function linearRegression(x, y){
         
-  //Create the regressor object to store the equation's data
   var regressor = {};
   
-  //Set variables we'll need to get the slope and intercept; we need to find the equation in the format y = m*x+b where m is the slope and b is the intercept
   var x_mean = calcMedia(x);
   var y_mean = calcMedia(y);
-  
-  //Equations to solve for slope: 
+   
   var slope = 0, slope_numerator = 0, slope_denominator = 0;
   for(i=0; i<x.length; i++){
   slope_numerator += (x[i]-x_mean)*(y[i]-y_mean);
@@ -53,7 +50,6 @@ function linearRegression(x, y){
   slope = slope_numerator/slope_denominator;
   regressor['slope'] = slope;
   
-  //Equation to solve for intercept
   var intercept = y_mean - x_mean*slope;
   regressor['intercept'] = intercept;
           
@@ -145,8 +141,6 @@ document.getElementById('form').addEventListener('submit', async function submit
   var xSize = [];
   var lr, lr1;
 
-  console.log(hora);
-
   if (hora != '') {
     hora < 10 ? hora = ('00' + hora).slice(-2) : hora;
     hora += '00'
@@ -194,8 +188,6 @@ document.getElementById('form').addEventListener('submit', async function submit
 
   var dp = desvioPadrao(valorY);
   var dp1 = desvioPadrao(valorY1);
-
-  console.log(valorY);
 
   var vari = variancia(valorY);
   var vari1 = variancia(valorY1);
