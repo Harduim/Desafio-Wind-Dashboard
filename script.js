@@ -1,6 +1,16 @@
 const graphics = document.getElementById("graphs");
 const baseURL ='https://apitempo.inmet.gov.br/'
 
+//cálcula a média de uma lista
+const average = (array) =>{
+    const averageOfArray = array.reduce((a,b)=> a+b, 0 );
+    const result = averageOfArray / array.length;
+    return result;
+}
+
+
+
+
 //conecta a api
 async function getApi(url){
   const response =  (await fetch(url)).json();
@@ -50,10 +60,11 @@ async function getStations(){
       valuesObject.serieType === '1' ? (urlRequest= `${baseURL}estacao/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`):(urlRequest = `${baseURL}estacao/diaria/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`);
         
        const windData = await getApi(urlRequest);
-       
+
        return windData;
   };
   
+
 
     window.addEventListener(onload, populatedSelect());
   
