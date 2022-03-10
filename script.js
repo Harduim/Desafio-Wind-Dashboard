@@ -128,25 +128,46 @@ async function getStations(){
       valuesObject.serieType === '1' ? (urlRequest= `${baseURL}estacao/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`):(urlRequest = `${baseURL}estacao/diaria/${valuesObject.initialDate}/${valuesObject.finalDate}/${valuesObject.stationId}`);
         
        const windData = await getApi(urlRequest);
+        
+       
        const velMax=[];
        const velTimeTable=[];
-       let nameStation= ''
-
-       windData.map(information=>{
-         velMax.push(information.VEN_RAJ),
-         velTimeTable.push(information.VEN_VEL),
-         nameStation = information.DC_NOME;
-        });
+       let nameStation='';
+       const  windAverage=[];
        
-      const filtredVelocity = {
-        maax:velMax,
-        TimeTable:velTimeTable,
-        nameStation
-      };
-      
-      console.log(filtredVelocity)
 
+
+       if(serieType ==='1'){
+
+        windData.map(information=>{
+          velMax.push(information.VEN_RAJ);
+          velTimeTable.push(information.VEN_VEL);
+          nameStation = information.DC_NOME;     
+        });
+          
+        }
+        else {
+            windData.map(information=>{   
+              windAverage.push(information.VEL_VENTO_MED)
+              nameStation =information.DC_NOME
+            });          
+        };
+      
+        const serieDiaria ={
+          windAverage,
+          nameStation
+        } ;
+
+        const serieHoraria ={
+          velMax,
+          velTimeTable,
+          nameStation
+        };
+    
+
+      
   };
+  
   
   
     
