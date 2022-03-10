@@ -33,6 +33,12 @@ const covariance = (array1, array2) =>{
   return sum / arrayLength;
 };
 
+const rmse = (arr) =>{
+ return  Math.sqrt(arr.
+    map(val=> val*val).reduce((total,value)=>total+value)/arr.length
+ )};
+
+
 //conecta a api
 async function getApi(url){
   const response =  (await fetch(url)).json();
