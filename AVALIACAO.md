@@ -1,0 +1,56 @@
+# Pontos de atenção
+
+- [ ] Todos os items das demandas 1 e 2 realizados;
+  - Demanda 1 (Criar as seguintes funções):
+    - [ ] variancia: Retorna a variância de uma relação de números;
+    - [ ] desvio_padrao: Retorna o desvio padrão de uma relação de números;
+    - [ ] covar: Retorna a covariância entre duas listas de números;
+    - [ ] rmse: Retorna a métrica RMSE para dois conjuntos numéricos;
+    - [ ] linear_reg: Calcula a [regressão linear simples]
+    - [ ] predict: Retorna uma série numérica com base no objeto de regressão linear e outra série numérica.
+  - Demanda 2 (Visualização de dados)
+    - Deve ser possível escolher:
+      - [ ] Estação;
+      - [ ] Tipo da série de dados, horário ou diário;
+      - [ ] Duas séries temporais (posteriormente chamadas de primeira série e segunda série);
+      - [ ] Data de inicio
+      - [ ] Data de fim
+    - A página deve conter:
+      - [ ] Gráfico de linha com as séries escolhidas pelo usuário;
+      - Tabela com as seguintes métricas de ambas as séries:
+         - [ ] Máximo;
+         - [ ] Mínimo;
+         - [ ] Desvio Padrão;
+         - [ ] Variância;
+         - [ ] Covariância;
+         - [ ] RMSE.
+      - Gráfico de linha com duas séries:
+        - [ ] Primeira série escolhida pelo usuário;
+        - [ ] Primeira série extrapolada a partir dos dados da segunda, utilizando a função *predict*.
+      - Gráfico de linha com duas séries:
+        - [ ] Segunda série escolhida pelo usuário;
+        - [ ] Segunda série extrapolada a partir dos dados da primeira, utilizando a função *predict*.
+- [ ] A página não abre vazia, abre em uma estação e series predeterminadas;
+- [ ] As funções da demanda 1 retornam valores corretos;
+    - [ ] Todos testes no test.js dão ok;
+    - [ ] Os gráficos com os dados extrapolados fazem sentido;
+- [ ] As funções foram validadas através de alguma outra ferramenta;
+- [ ] O site funciona mesmo quando alguma variável não tem todos os dados (Vide estação A005);
+- [ ] O filtro de estações não exibe estações em pane, ou exibe algum aviso;
+- [ ] O filtro de estações só exibe as estações automáticas, não exibe as manuais;
+- [ ] O filtro de data não permite data inicial superior a final;
+- [ ] O filtro de data não permite datas no futuro;
+- [ ] O filtro de data tem padrões coerentes (data final hoje, data inicial 15 dias atrás);
+- [ ] O filtro de data define um limite máximo e mínimo de dias;
+- [ ] O filtro de estações exibe a localização geográfica de alguma forma;
+- [ ] O filtro de series exibe o nome completo da variável, não a abreviação;
+- [ ] Os gráficos atualizam quando os filtros das series A e B são atualizados, ou seja sem precisar clicar em buscar;
+- [ ] Os gráficos exibem os nomes das variáveis no eixo Y;
+- [ ] Os gráficos foram personalizados adicionando algum recurso da biblioteca, como rangeslider, hovermode-unified e etc;
+- [ ] Foi utilizado o recurso de template do plotly para reduzir o código repetido;
+- [ ] A serie temporal usa dois eixos Y (direita e esquerda);
+- [ ] O eixo X de todos os gráficos é tratado como data e não como texto ou número;
+- [ ] É possível navegar entre as seções da página através de um menu;
+- [ ] A página funciona em 'meia tela' e mobile;
+- [ ] Foram usadas as cores da marca.
+
